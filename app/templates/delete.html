@@ -1,0 +1,12 @@
+{% extends "base_templates.html" %}
+
+{% block title %}delete{% endblock %}
+
+{% block body %}
+
+    <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+    <h1> are youy sure ???</h1>
+    <button class='btn btn-outline-danger' type="submit">delete</button>
+    <p><a href="{% url 'list' %}">cancel</a></p>
+    {% endblock %}

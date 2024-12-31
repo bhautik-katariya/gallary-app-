@@ -1,0 +1,26 @@
+{% extends "base_templates.html" %}
+
+{% block title %}Gallery{% endblock %}
+
+{% block body %}
+    <a class='btn btn-outline-danger' href="{% url 'login' %}">logout</a>
+    <a class='btn btn-outline-success'href="{% url 'add' %}">Add</a>
+    <br>
+    <br>
+    <div class="container">
+        <div class="row gap-3">
+            {% for p in photos %}
+            <div class="card col-md-4" style="width: 18rem;">
+                <img class="card-img-top" height="200" width="200" src="{{ p.photo.url }}" alt="">
+                <div class="card-body">
+                    <p class="card-text">{{ p.text }}</p>
+                    <p class="card-text">{{ p.created_at }}</p>
+                    <a class="btn btn-outline-primary" href="{% url 'edit' p.id %}">Update</a>
+                    <a class="btn btn-outline-danger" href="{% url 'delete' p.id %}">Delete</a>
+                    <a class="btn btn-outline-warning" href="{% url 'setup_mail' %}">Mail</a>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}

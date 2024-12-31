@@ -1,0 +1,28 @@
+{% extends "base_templates.html" %}
+
+{% block title %}Gmail{% endblock %}
+
+{% block body %}
+    <form method='POST'>
+        {% csrf_token %}
+        <label for="subject">subject</label>
+        <input type="text" name="subject" id="">
+        <br>
+        <br>
+        <label for="message">message</label>
+        <textarea cols='100' rows='10' name="message" id=""></textarea>
+        <br>
+        <br>
+        <label for="from_mail">From mail</label>
+        <input type="email" name="from_mail" id="">
+        <br>
+        <br>
+        <label for="to_mail">To Email</labe                                                                                               l>
+        <input type="email" name="to_mail" id="">
+        <br>
+    <button type="submit">Send Mail</button>   
+    </form>
+    {% if error %}
+        {{error}}
+    {% endif %}
+    {% endblock %}

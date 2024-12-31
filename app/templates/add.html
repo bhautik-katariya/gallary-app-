@@ -1,0 +1,11 @@
+{% extends "base_templates.html" %}
+
+{% block title %}add{% endblock %}
+
+{% block body %}
+  <form method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{form.as_p}}
+    <button class='btn btn-outline-dark' type="submit">submit</button>
+</form>
+{% endblock %}
